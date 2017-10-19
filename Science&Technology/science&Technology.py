@@ -3,10 +3,14 @@ import pandas as pd
 from pandas import ExcelWriter
 
 
-df = pd.read_excel('Science&TechnologyData.xlsx')
+df = pd.read_excel('Majors Changed.xlsx')
 sciene_and_technology = ['BIOL-BS', 'CHEM-BS', 'CS-BS' , 'IT-BS',  'MATH-BS', 'PHYS-BS', 'Others']
 sciene_and_technology_total_students_enrolled = [781, 110, 444, 403, 57, 51, 0]
 
+sciene_and_technology_total_students_enrolled[-1] = 14499 - sum(sciene_and_technology_total_students_enrolled)
+
+print('Total number of students enrolled')
+print(sciene_and_technology_total_students_enrolled)
 
 
 #https://www2.southeastern.edu/Administration/Inst-Research/Acadprog/data.cgi?majors.txt
@@ -30,6 +34,10 @@ for data in df['Major End of Semester']:
     if(data not in sciene_and_technology):
         df.loc[df['Major End of Semester'] == data, 'Major End of Semester'] = 'Others'
 
+for data in df['Major Beginning of Semester']:
+    if(data not in sciene_and_technology):
+        df.loc[df['Major Beginning of Semester'] == data, 'Major Beginning of Semester'] = 'Others'
+
         # (df['Major End of Semester'] == data) ['Major End of Semester'] = 'Others'
         # print(df['Major End of Semester'])
         # print('Am I here')
@@ -48,20 +56,14 @@ data = df.values
 
 for index, major in enumerate(sciene_and_technology):
     for index2, major2 in enumerate(sciene_and_technology):
-
-        #print('Major Beginning of the semester', major)
-        #print('Major End of the semester', sciene_and_technology[index2])
         a = sum((df['Major Beginning of Semester'] == major) & (df['Major End of Semester'] == sciene_and_technology[index2]))
         probability_matrix[index][index2] = a
-        #count = [1 if (df['Major Beginning of Semester'] == major and df['Major End of Semester'] == 'CHEM-BS').any()  else 0]
 
-                       #and df['Major End of Semester'] == 'CHEM-BS') else 0]
-        #print(sum(count))
 
 print(probability_matrix)
 
 probability_matrix = np.array(probability_matrix)
-
+#
 for row in range(probability_matrix.shape[0]):
         print('row number' , row)
         print(probability_matrix[row], 'Probability Matirx row')
@@ -78,3 +80,5 @@ for row in range(probability_matrix.shape[0]):
 
 print('After assigning probability')
 print(probability_matrix)
+
+np.savetxt('TransitionProbabilityMatrix.txt', probability_matrix)
