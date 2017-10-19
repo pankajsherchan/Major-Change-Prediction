@@ -7,6 +7,12 @@ df = pd.read_excel('Majors Changed.xlsx')
 sciene_and_technology = ['BIOL-BS', 'CHEM-BS', 'CS-BS' , 'IT-BS',  'MATH-BS', 'PHYS-BS', 'Others']
 sciene_and_technology_total_students_enrolled = [781, 110, 444, 403, 57, 51, 0]
 
+df = df.drop(df[(df['Major Beginning of Semester'] == 'NURS-BS') & (df['Major End of Semester'] == 'NURS-BSN')].index)
+
+print(df.describe())
+print('Data related to nursing major')
+# print(sum(unnecessary_data))
+
 sciene_and_technology_total_students_enrolled[-1] = 14499 - sum(sciene_and_technology_total_students_enrolled)
 
 print('Total number of students enrolled')
