@@ -96,6 +96,8 @@ def main():
     #create probability matrix
     pm1 = create_probability_matrix(FR, total_students_enrolled)
     pm2 = create_probability_matrix(SO, total_students_enrolled)
+    pm3 = create_probability_matrix(JR, total_students_enrolled)
+    pm4 = create_probability_matrix(SR, total_students_enrolled)
 
 
     # #pm2 = create_probability_matrix(df2, sciene_and_technology_total_students_enrolled_spring)
@@ -115,6 +117,9 @@ def main():
     # np.savetxt('TransitionProbabilityMatrix.txt', final_pm)
 
     np.savetxt('FR transitionmatrix', pm1)
+    np.savetxt('SO transitionmatrix', pm2)
+    np.savetxt('JR transitionmatrix', pm3)
+    np.savetxt('SR transitionmatrix', pm4)
 
 
 if __name__ == "__main__":
