@@ -3,14 +3,14 @@ import pandas as pd
 from pandas import ExcelWriter
 
 
-path = '/Users/Pankaj/Major-Change-Prediction/All Major/Data/Old/Majors Changed.xlsx'
+path = '/Users/Pankaj/Major-Change-Prediction/All Major/Data/Updated/Majors Changed Updated.xlsx'
 xls = pd.ExcelFile(path)
 df1 = xls.parse('Fall 2016')
 df2 = xls.parse('Spring 2017')
 
 
 
-df = pd.read_excel('/Users/Pankaj/Major-Change-Prediction/All Major/Data/Old/Majors Changed.xlsx')
+df = pd.read_excel('/Users/Pankaj/Major-Change-Prediction/All Major/Data/Updated/Majors Changed Updated.xlsx')
 
 sciene_and_technology = ['BIOL-BS', 'CHEM-BS', 'CS-BS' , 'IT-BS',  'MATH-BS', 'PHYS-BS', 'Others']
 sciene_and_technology_total_students_enrolled_fall = [781, 110, 444, 403, 57, 51, 0]
