@@ -3,22 +3,25 @@ import pandas as pd
 from pandas import ExcelWriter
 
 
-path = '/Users/Pankaj/Major-Change-Prediction/All Major/Data/Updated/Majors Changed Updated.xlsx'
+path = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/Both Semester.xlsx'
 xls = pd.ExcelFile(path)
-fall_data = xls.parse('Fall 2016')
-spring_data = xls.parse('Spring 2017')
-
-total_data = fall_data + spring_data
+FR = xls.parse('FR')
+SO = xls.parse('SO')
+JR = xls.parse('JR')
+SR = xls.parse('SR')
 
 
 sciene_and_technology = ['BIOL-BS', 'CHEM-BS', 'CS-BS' , 'IT-BS',  'MATH-BS', 'PHYS-BS', 'Others']
 sciene_and_technology_total_students_enrolled_fall = [781, 110, 444, 403, 57, 51, 0]
 sciene_and_technology_total_students_enrolled_spring = [645,71,261,203,48,50, 0]
+
 classification_list = ['FR', 'SO', 'JR', 'SR']
 
 
 sciene_and_technology_total_students_enrolled_fall[-1] = 14499 - sum(sciene_and_technology_total_students_enrolled_fall)
 sciene_and_technology_total_students_enrolled_spring[-1] = 10000 - sum(sciene_and_technology_total_students_enrolled_spring)
+total_students_enrolled = sciene_and_technology_total_students_enrolled_fall + sciene_and_technology_total_students_enrolled_spring
+
 
 probability_matrix = np.zeros((7,7))
 
@@ -88,39 +91,13 @@ def create_probability_matrix(df1, total_students_df1):
 
 
 def main():
-    clean_df1 = cleanup_data(fall_data, sciene_and_technology_total_students_enrolled_fall, 'fall')
-    clean_df2 = cleanup_data(spring_data, sciene_and_technology_total_students_enrolled_spring, 'spring')
 
-    # clean_df1.to_csv('cleaned_data_fall.csv', sep='\t', encoding='utf-8', index=False)
-    # clean_df2.to_csv('cleaned_data_spring.csv', sep='\t', encoding='utf-8', index=False)
 
-    # classify_data(clean_df1, 'fall')
-    # classify_data(clean_df2, 'spring')
+    #create probability matrix
+    pm1 = create_probability_matrix(FR, total_students_enrolled)
+    pm2 = create_probability_matrix(SO, total_students_enrolled)
 
-    print('Fall')
-    print(clean_df1.describe())
-    print('Spring')
-    print(clean_df2.describe())
 
-    print('Both')
-    new_df = pd.concat([clean_df1, clean_df2])
-
-    print(new_df.describe())
-
-    classify_data(new_df, 'Both Semester')
-
-    # writer = ExcelWriter('cleaned_data.xlsx')
-    # clean_df1.to_excel(writer, 'Fall Data', index=False)
-    # clean_df2.to_excel(writer, 'Spring Data', index = False)
-    # writer.save()
-    #
-    #
-    #
-    #
-    # #create probability matrix
-    # pm1 = create_probability_matrix(clean_df1, sciene_and_technology_total_students_enrolled_fall)
-    # pm2 = create_probability_matrix(clean_df2, sciene_and_technology_total_students_enrolled_spring)
-    #
     # #pm2 = create_probability_matrix(df2, sciene_and_technology_total_students_enrolled_spring)
     #
     # print('Pm1')
@@ -136,6 +113,8 @@ def main():
     # print(final_pm)
     #
     # np.savetxt('TransitionProbabilityMatrix.txt', final_pm)
+
+    np.savetxt('FR transitionmatrix', pm1)
 
 
 if __name__ == "__main__":
