@@ -94,16 +94,16 @@ def main():
     # clean_df1.to_csv('cleaned_data_fall.csv', sep='\t', encoding='utf-8', index=False)
     # clean_df2.to_csv('cleaned_data_spring.csv', sep='\t', encoding='utf-8', index=False)
 
-    # classify_data(clean_df1, 'fall')
-    # classify_data(clean_df2, 'spring')
+    classify_data(clean_df1, 'fall')
+    classify_data(clean_df2, 'spring')
 
-    print('Fall')
-    print(clean_df1.describe())
-    print('Spring')
-    print(clean_df2.describe())
+    # print('Fall')
+    # print(clean_df1.describe())
+    # print('Spring')
+    # print(clean_df2.describe())
 
     print('Both')
-    new_df = pd.concat([clean_df1, clean_df2])
+    new_df = pd.concat([clean_df1])
 
     print(new_df.describe())
 

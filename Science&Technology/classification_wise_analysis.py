@@ -4,26 +4,74 @@ from pandas import ExcelWriter
 
 
 path = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/Both Semester.xlsx'
-xls = pd.ExcelFile(path)
-FR = xls.parse('FR')
-SO = xls.parse('SO')
-JR = xls.parse('JR')
-SR = xls.parse('SR')
+divided_data_path = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/divided_data.xlsx'
+classification_wise_data = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/classification_wise_data.xlsx'
+
+only_fall_data = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/fall.xlsx'
+
+only_spring_data = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/fall.xlsx'
+
+
+
+xls = pd.ExcelFile(only_fall_data)
+fall_FR = xls.parse('FR')
+fall_SO = xls.parse('SO')
+fall_JR = xls.parse('JR')
+fall_SR = xls.parse('SR')
+
+xls = pd.ExcelFile(only_spring_data)
+spring_FR = xls.parse('FR')
+spring_SO = xls.parse('SO')
+spring_JR = xls.parse('JR')
+spring_SR = xls.parse('SR')
+
+
+
 
 
 sciene_and_technology = ['BIOL-BS', 'CHEM-BS', 'CS-BS' , 'IT-BS',  'MATH-BS', 'PHYS-BS', 'Others']
-sciene_and_technology_total_students_enrolled_fall = [781, 110, 444, 403, 57, 51, 0]
-sciene_and_technology_total_students_enrolled_spring = [645,71,261,203,48,50, 0]
+sciene_and_technology_division = ['BIOL-BS', 'CHEM-BS', 'CS-BS' , 'IT-BS',  'MATH-BS', 'PHYS-BS']
+
+divided_majors = np.array([ [major+ 'Higher' , major + 'Lower']  for major in sciene_and_technology]).ravel()
+
+total_freshman_fall = 3626
+total_freshman_spring = 2627
+
+total_sophomore_fall = 2131
+total_sophomore_spring = 2001
+
+total_junior_fall = 2019
+total_junior_spring = 1980
+
+total_senior_fall = 3087
+total_senior_spring = 3060
+
+sciene_and_technology_total_students_enrolled_fall_freshman = [330, 44, 135, 55, 13, 25, 3024]
+sciene_and_technology_total_students_enrolled_sprint_freshman = [233, 25, 97, 43, 5, 16, 2208]
+
+sciene_and_technology_total_students_enrolled_fall_sophomore = [162, 22, 54, 39, 8, 8, 1838]
+sciene_and_technology_total_students_enrolled_spring_sophomore = [143, 15, 50, 40, 11, 12, 1730]
+
+
+sciene_and_technology_total_students_enrolled_fall_junior = [124, 16, 48, 40, 11, 6, 1774]
+sciene_and_technology_total_students_enrolled_spring_junior = [119, 14, 49, 48, 10, 6, 1734]
+
+
+sciene_and_technology_total_students_enrolled_fall_senior = [155, 24, 84, 70, 23, 10, 2721]
+sciene_and_technology_total_students_enrolled_spring_senior = [156, 24, 87, 69, 22, 10, 3060]
+
+
 
 classification_list = ['FR', 'SO', 'JR', 'SR']
 
-
-sciene_and_technology_total_students_enrolled_fall[-1] = 14499 - sum(sciene_and_technology_total_students_enrolled_fall)
-sciene_and_technology_total_students_enrolled_spring[-1] = 10000 - sum(sciene_and_technology_total_students_enrolled_spring)
-total_students_enrolled = sciene_and_technology_total_students_enrolled_fall + sciene_and_technology_total_students_enrolled_spring
+#
+# sciene_and_technology_total_students_enrolled_fall[-1] = 14499 - sum(sciene_and_technology_total_students_enrolled_fall)
+# sciene_and_technology_total_students_enrolled_spring[-1] = 10000 - sum(sciene_and_technology_total_students_enrolled_spring)
+# total_students_enrolled = sciene_and_technology_total_students_enrolled_fall + sciene_and_technology_total_students_enrolled_spring
 
 
 probability_matrix = np.zeros((7,7))
+number_matrix_new = np.zeros((7,7))
 
 def cleanup_data(df, total_students, semester):
 
@@ -55,49 +103,80 @@ def classify_data(df, semester):
     for i, classification in enumerate(classification_list):
         print(classification)
         classified_data = df[df['Class'] == classification]
-        print(classification)
-        print(classified_data)
 
         classified_data.to_excel(writer, classification)
         #df2.to_excel(writer, 'Sheet' + (i+1))
         writer.save()
         #classified_data.to_excel(classification + '.excel', sep='\t', encoding='utf-8', index=False)
 
+def divide_low_high_grade_major(df):
+    for index , major in enumerate(sciene_and_technology):
 
+            df.loc[ (df['Cum GPA End of Semester'] <= 3.0) & (df['Major End of Semester'] == major), 'Major End of Semester'] = major + 'Lower'
+            df.loc[ (df['Cum GPA Beginning of Semester'] <= 3.0) & (df['Major Beginning of Semester'] == major) ,'Major Beginning of Semester'] = major + 'Lower'
 
-def create_probability_matrix(df1, total_students_df1):
+            df.loc[ (df['Cum GPA End of Semester'] > 3.0) & (df['Major End of Semester'] == major), 'Major End of Semester'] = major + 'Higher'
+            df.loc[ (df['Cum GPA Beginning of Semester'] > 3.0) & (df['Major Beginning of Semester'] == major) , 'Major Beginning of Semester'] = major + 'Higher'
+    return df
 
-    average_total_students = total_students_df1
+def create_probability_matrix(df1, sciene_and_technology_total_students_enrolled_persemester):
+
 
     for index, major in enumerate(sciene_and_technology):
         for index2, major2 in enumerate(sciene_and_technology):
             a = df1[(df1['Major Beginning of Semester'] == major) & (df1['Major End of Semester'] == sciene_and_technology[index2])]
-            # 4 because of 4 semester(Fall and Spring) before graduation
-            probability_matrix[index][index2] = 8 * len(a.index)
+            probability_matrix[index][index2] = float("{0:.2f}".format(len(a.index)))
 
     #update the diagonal
     for row in range(probability_matrix.shape[0]):
         all_other_rows = [x for i, x in enumerate(probability_matrix[row]) if i != row]
-
-        probability_matrix[row][row] = average_total_students[row] - sum(all_other_rows)
+        probability_matrix[row][row] = sciene_and_technology_total_students_enrolled_persemester[row] - sum(all_other_rows)
 
 
     #convert into probability
-    for row in range(probability_matrix.shape[0]):
-        for column in range(probability_matrix.shape[1]):
-            probability_matrix[row][column] = probability_matrix[row][column] / average_total_students[row]
+    for row in range(number_matrix_new.shape[0]):
+        for column in range(number_matrix_new.shape[1]):
+            number_matrix_new[row][column] = probability_matrix[row][column] / sciene_and_technology_total_students_enrolled_persemester[row]
 
-    return probability_matrix
+    return probability_matrix, number_matrix_new
+
+def main(classification, semester):
 
 
-def main():
+    data = fall_FR
+    total = sciene_and_technology_total_students_enrolled_fall_freshman
+
+    if(classification == 'FR' and semester == 'Fall'):
+        data = fall_FR
+        total = sciene_and_technology_total_students_enrolled_fall_freshman
+    elif (classification == 'SO' and semester == 'Fall'):
+        data = fall_SO
+        total = sciene_and_technology_total_students_enrolled_fall_sophomore
+    elif (classification == 'JR' and semester == 'Fall'):
+        data = fall_JR
+        total = sciene_and_technology_total_students_enrolled_fall_junior
+    elif (classification == 'SR' and semester == 'Fall'):
+        data = fall_SR
+        total = sciene_and_technology_total_students_enrolled_fall_senior
+    elif (classification == 'FR' and semester == 'Spring'):
+        data = spring_FR
+        total = sciene_and_technology_total_students_enrolled_sprint_freshman
+    elif (classification == 'SO' and semester == 'Spring'):
+        data = spring_SO
+        total = sciene_and_technology_total_students_enrolled_spring_sophomore
+    elif (classification == 'JR' and semester == 'Spring'):
+        data = spring_JR
+        total = sciene_and_technology_total_students_enrolled_spring_junior
+    elif (classification == 'SR' and semester == 'Spring'):
+        data = spring_SR
+        total = sciene_and_technology_total_students_enrolled_spring_senior
 
 
     #create probability matrix
-    pm1 = create_probability_matrix(FR, total_students_enrolled)
-    pm2 = create_probability_matrix(SO, total_students_enrolled)
-    pm3 = create_probability_matrix(JR, total_students_enrolled)
-    pm4 = create_probability_matrix(SR, total_students_enrolled)
+    pm1 = create_probability_matrix(data, total)
+    # pm2 = create_probability_matrix(SO, 2135)
+    # pm3 = create_probability_matrix(JR, 2022)
+    # pm4 = create_probability_matrix(SR, 3089)
 
 
     # #pm2 = create_probability_matrix(df2, sciene_and_technology_total_students_enrolled_spring)
@@ -116,11 +195,39 @@ def main():
     #
     # np.savetxt('TransitionProbabilityMatrix.txt', final_pm)
 
-    np.savetxt('FR transitionmatrix', pm1)
-    np.savetxt('SO transitionmatrix', pm2)
-    np.savetxt('JR transitionmatrix', pm3)
-    np.savetxt('SR transitionmatrix', pm4)
+
+    np.savetxt('TransitionProbabilityMatrix' + semester + classification, pm1[1])
+    np.savetxt('TransitionNumberMatrix' + semester + classification , pm1[0])
+    # np.savetxt('SO transitionmatrix', pm2)
+
+    # np.savetxt('JR transitionmatrix', pm3)
+    # np.savetxt('SR transitionmatrix', pm4)
+
+    # print(divide_low_high_grade_major(FR))
+    # fr = divide_low_high_grade_major(FR)
+    # so = divide_low_high_grade_major(SO)
+    # jr = divide_low_high_grade_major(JR)
+    # sr = divide_low_high_grade_major(SR)
+
+
+    writer = pd.ExcelWriter('divided_data' + '.xlsx')
+
+    # fr.to_excel(writer, 'FR')
+    # so.to_excel(writer, 'SO')
+    # jr.to_excel(writer, 'JR')
+    # sr.to_excel(writer, 'SR')
+    # writer.save()
+
 
 
 if __name__ == "__main__":
-    main()
+    for classification in classification_list:
+        for semester in ['Spring', 'Fall']:
+            main(classification, semester)
+            print(classification, semester)
+
+    #
+    #     main(classification, sciene_and_technology_total_students_enrolled_fall_freshman, 'fall')
+    #
+    # for classification in classification_list:
+    #     main(classification, sciene_and_technology_total_students_enrolled_sprint_freshman, 'spring')
