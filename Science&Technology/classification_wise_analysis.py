@@ -1,6 +1,11 @@
 import numpy as np
 import pandas as pd
 from pandas import ExcelWriter
+from os.path import join as pjoin
+import os
+import hickle as hkl
+from os import path
+
 
 
 path = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/Both Semester.xlsx'
@@ -9,7 +14,7 @@ classification_wise_data = '/Users/Pankaj/Major-Change-Prediction/Science&Techno
 
 only_fall_data = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/fall.xlsx'
 
-only_spring_data = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/fall.xlsx'
+only_spring_data = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/spring.xlsx'
 
 
 
@@ -19,11 +24,11 @@ fall_SO = xls.parse('SO')
 fall_JR = xls.parse('JR')
 fall_SR = xls.parse('SR')
 
-xls = pd.ExcelFile(only_spring_data)
-spring_FR = xls.parse('FR')
-spring_SO = xls.parse('SO')
-spring_JR = xls.parse('JR')
-spring_SR = xls.parse('SR')
+xls_spring = pd.ExcelFile(only_spring_data)
+spring_FR = xls_spring.parse('FR')
+spring_SO = xls_spring.parse('SO')
+spring_JR = xls_spring.parse('JR')
+spring_SR = xls_spring.parse('SR')
 
 
 
@@ -71,7 +76,10 @@ classification_list = ['FR', 'SO', 'JR', 'SR']
 
 
 probability_matrix = np.zeros((7,7))
-number_matrix_new = np.zeros((7,7))
+number_matrix = np.zeros((7,7))
+
+probability_matrix_success = np.zeros((7,7))
+number_matrix_success = np.zeros((7,7))
 
 def cleanup_data(df, total_students, semester):
 
@@ -101,7 +109,6 @@ def save_data(df, semester):
 def classify_data(df, semester):
     writer = pd.ExcelWriter(semester + '.xlsx')
     for i, classification in enumerate(classification_list):
-        print(classification)
         classified_data = df[df['Class'] == classification]
 
         classified_data.to_excel(writer, classification)
@@ -125,23 +132,53 @@ def create_probability_matrix(df1, sciene_and_technology_total_students_enrolled
     for index, major in enumerate(sciene_and_technology):
         for index2, major2 in enumerate(sciene_and_technology):
             a = df1[(df1['Major Beginning of Semester'] == major) & (df1['Major End of Semester'] == sciene_and_technology[index2])]
-            probability_matrix[index][index2] = float("{0:.2f}".format(len(a.index)))
+            number_matrix[index][index2] = len(a.index)
 
     #update the diagonal
-    for row in range(probability_matrix.shape[0]):
-        all_other_rows = [x for i, x in enumerate(probability_matrix[row]) if i != row]
-        probability_matrix[row][row] = sciene_and_technology_total_students_enrolled_persemester[row] - sum(all_other_rows)
+    for row in range(number_matrix.shape[0]):
+        all_other_rows = [x for i, x in enumerate(number_matrix[row]) if i != row]
+        number_matrix[row][row] = sciene_and_technology_total_students_enrolled_persemester[row] - sum(all_other_rows)
 
 
     #convert into probability
-    for row in range(number_matrix_new.shape[0]):
-        for column in range(number_matrix_new.shape[1]):
-            number_matrix_new[row][column] = probability_matrix[row][column] / sciene_and_technology_total_students_enrolled_persemester[row]
+    for row in range(probability_matrix.shape[0]):
+        for column in range(probability_matrix.shape[1]):
+            probability_matrix[row][column] = number_matrix[row][column] / sciene_and_technology_total_students_enrolled_persemester[row]
 
-    return probability_matrix, number_matrix_new
+    return probability_matrix, number_matrix
+
+
+def create_probability_matrix_success(df, total):
+
+    # get the total number of success
+    success = []
+    for index, major in enumerate(sciene_and_technology):
+        major_success = 0
+        for index2, major2 in enumerate(sciene_and_technology):
+            a = df[ ( df['Major Beginning of Semester'] == major) & (
+            df['Major End of Semester'] == sciene_and_technology[index2]) & (df['Cum GPA Beginning of Semester'] < df['Cum GPA End of Semester'])]
+            number_matrix_success[index][index2] = len(a.index)
+            major_success += len(a.index)
+        success.append(major_success)
+
+    # update the diagonal
+    for row in range(number_matrix_success.shape[0]):
+        all_other_rows = [x for i, x in enumerate(number_matrix_success[row]) if i != row]
+        number_matrix_success[row][row] = success[row] - sum(
+            all_other_rows)
+
+
+        # convert into probability
+    for row in range(number_matrix_success.shape[0]):
+        for column in range(number_matrix_success.shape[1]):
+            probability_matrix_success[row][column] = number_matrix_success[row][column] / \
+                                             sum(success)
+
+    return probability_matrix_success, number_matrix_success
+
+
 
 def main(classification, semester):
-
 
     data = fall_FR
     total = sciene_and_technology_total_students_enrolled_fall_freshman
@@ -171,52 +208,26 @@ def main(classification, semester):
         data = spring_SR
         total = sciene_and_technology_total_students_enrolled_spring_senior
 
+    print(classification, semester)
 
     #create probability matrix
-    pm1 = create_probability_matrix(data, total)
-    # pm2 = create_probability_matrix(SO, 2135)
-    # pm3 = create_probability_matrix(JR, 2022)
-    # pm4 = create_probability_matrix(SR, 3089)
+    pm = create_probability_matrix(data, total)
+    pm_success = create_probability_matrix_success(data, total)
 
 
-    # #pm2 = create_probability_matrix(df2, sciene_and_technology_total_students_enrolled_spring)
-    #
-    # print('Pm1')
-    # print(pm1)
-    #
-    #
-    # print('Pm 2')
-    # print(pm2)
-    #
-    # final_pm = [x / 2 for x in (pm1 + pm2)]
-    #
-    # print('Final Pm')
-    # print(final_pm)
-    #
-    # np.savetxt('TransitionProbabilityMatrix.txt', final_pm)
+    path_to_save = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/Result/'+semester + classification
 
+    try:
+        os.makedirs(path_to_save)
+    except OSError:
+        if not os.path.isdir(path_to_save):
+            raise
 
-    np.savetxt('TransitionProbabilityMatrix' + semester + classification, pm1[1])
-    np.savetxt('TransitionNumberMatrix' + semester + classification , pm1[0])
-    # np.savetxt('SO transitionmatrix', pm2)
+    np.savetxt(os.path.join(path_to_save, 'TransitionProbabilityMatrixSuccess.txt'), pm_success[0])
+    np.savetxt(os.path.join(path_to_save, 'TransitionNumberMatrixSuccess.txt'), pm_success[1])
 
-    # np.savetxt('JR transitionmatrix', pm3)
-    # np.savetxt('SR transitionmatrix', pm4)
-
-    # print(divide_low_high_grade_major(FR))
-    # fr = divide_low_high_grade_major(FR)
-    # so = divide_low_high_grade_major(SO)
-    # jr = divide_low_high_grade_major(JR)
-    # sr = divide_low_high_grade_major(SR)
-
-
-    writer = pd.ExcelWriter('divided_data' + '.xlsx')
-
-    # fr.to_excel(writer, 'FR')
-    # so.to_excel(writer, 'SO')
-    # jr.to_excel(writer, 'JR')
-    # sr.to_excel(writer, 'SR')
-    # writer.save()
+    np.savetxt(os.path.join(path_to_save, 'TransitionProbabilityMatrix.txt'), pm[0])
+    np.savetxt(os.path.join(path_to_save, 'TransitionNumberMatrix.txt'), pm[1])
 
 
 
@@ -224,10 +235,4 @@ if __name__ == "__main__":
     for classification in classification_list:
         for semester in ['Spring', 'Fall']:
             main(classification, semester)
-            print(classification, semester)
 
-    #
-    #     main(classification, sciene_and_technology_total_students_enrolled_fall_freshman, 'fall')
-    #
-    # for classification in classification_list:
-    #     main(classification, sciene_and_technology_total_students_enrolled_sprint_freshman, 'spring')
