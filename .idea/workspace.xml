@@ -2,23 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd2cd97c-7bcb-443e-874a-76e54593fc91" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Science&amp;Technology/science&amp;TechnologyUpdated.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/All Major/csvfile.csv" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/All Major/AllMajorsEnrollementData.xlsx" afterPath="$PROJECT_DIR$/All Major/Data/Old/AllMajorsEnrollementData.xlsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/All Major/Majors Changed.csv" afterPath="$PROJECT_DIR$/All Major/Data/Old/Majors Changed.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/All Major/Majors Changed.xlsx" afterPath="$PROJECT_DIR$/All Major/Data/Old/Majors Changed.xlsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/All Major/Majors-End of Spring 2017.xlsx" afterPath="$PROJECT_DIR$/All Major/Data/Old/Majors-End of Spring 2017.xlsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Majors Changed.xlsx" afterPath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/Majors Changed.xlsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Science&amp;TechnologyData.csv" afterPath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/Science&amp;TechnologyData.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Science&amp;TechnologyData.xlsx" afterPath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/Science&amp;TechnologyData.xlsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Science&amp;TechnologyDataAfterCleaning.csv" afterPath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/Science&amp;TechnologyDataAfterCleaning.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Science&amp;TechnologyDataAfterCleaning.xlsx" afterPath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/Science&amp;TechnologyDataAfterCleaning.xlsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrix.txt" afterPath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/TransitionProbabilityMatrix.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Science&amp;Technology/cleaned_data.xlsx" afterPath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/cleaned_data.xlsx" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Science&amp;Technology/cleaned_data_fall.csv" afterPath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/cleaned_data_fall.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Science&amp;Technology/cleaned_data_spring.csv" afterPath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/cleaned_data_spring.csv" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Both Semester.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/Majors Changed.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/Science&amp;TechnologyData.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/Science&amp;TechnologyData.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/Science&amp;TechnologyDataAfterCleaning.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/Science&amp;TechnologyDataAfterCleaning.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/TransitionProbabilityMatrix.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/cleaned_data.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/cleaned_data_fall.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Data/Old/cleaned_data_spring.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Fall Classification/FreshmantransitionProabilityMatrixFall2016 Number" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/Fall Classification/FreshmantransitionProabilityMatrixFall2016 Probability" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixFall/TransitionNumberMatrixFallFR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixFall/TransitionNumberMatrixFallJR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixFall/TransitionNumberMatrixFallSO" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixFall/TransitionNumberMatrixFallSR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSpring/TransitionNumberMatrixSpringFR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSpring/TransitionNumberMatrixSpringJR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSpring/TransitionNumberMatrixSpringSO" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSpring/TransitionNumberMatrixSpringSR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSuccessFallFR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSuccessFallJR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSuccessFallSO" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSuccessFallSR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSuccessSpringFR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSuccessSpringJR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSuccessSpringSO" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSuccessSpringSR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixFall/TransitionProbabilityMatrixFallFR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixFall/TransitionProbabilityMatrixFallJR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixFall/TransitionProbabilityMatrixFallSO" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixFall/TransitionProbabilityMatrixFallSR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSpring/TransitionProbabilityMatrixSpringFR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSpring/TransitionProbabilityMatrixSpringJR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSpring/TransitionProbabilityMatrixSpringSO" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSpring/TransitionProbabilityMatrixSpringSR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSuccessFallFR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSuccessFallJR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSuccessFallSO" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSuccessFallSR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSuccessSpringFR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSuccessSpringJR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSuccessSpringSO" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSuccessSpringSR" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/cleaned_data.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/cleaned_data_fall.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/cleaned_data_spring.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/divided_data.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/~$classification_wise_data.xlsx" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Science&amp;Technology/~$fall.xlsx" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Science&amp;Technology/science&amp;Technology.py" afterPath="$PROJECT_DIR$/Science&amp;Technology/science&amp;Technology.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,26 +63,27 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="science&amp;Technology.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Science&amp;Technology/science&amp;Technology.py">
+    <leaf>
+      <file leaf-file-name="classification_wise_analysis.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Science&amp;Technology/classification_wise_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#3391#4577#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="science&amp;TechnologyUpdated.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="science&amp;TechnologyUpdated.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Science&amp;Technology/science&amp;TechnologyUpdated.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="420">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#921#1674#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -65,7 +100,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>df</find>
+      <find>science&amp;Techno</find>
+      <find>classify_data(</find>
       <find>print</find>
+      <find>total_data</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -75,8 +114,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Science&amp;Technology/linearRegression.py" />
-        <option value="$PROJECT_DIR$/Science&amp;Technology/science&amp;Technology.py" />
+        <option value="$PROJECT_DIR$/Prediction/FR transitionmatrix" />
+        <option value="$PROJECT_DIR$/Prediction/predict.py" />
+        <option value="$PROJECT_DIR$/Science&amp;Technology/FR transitionmatrix" />
+        <option value="$PROJECT_DIR$/Science&amp;Technology/FR transitionmatrix_new" />
         <option value="$PROJECT_DIR$/Science&amp;Technology/science&amp;TechnologyUpdated.py" />
+        <option value="$PROJECT_DIR$/Science&amp;Technology/science&amp;Technology.py" />
+        <option value="$PROJECT_DIR$/Science&amp;Technology/classification_wise_analysis.py" />
       </list>
     </option>
   </component>
@@ -100,7 +144,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -113,9 +156,32 @@
               <option name="myItemId" value="Major-Change-Prediction" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Science&amp;Technology" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Major-Change-Prediction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Major-Change-Prediction" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="All Major" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -123,6 +189,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Science&amp;Technology/Data/Old" />
       <recent name="$PROJECT_DIR$/All Major/Data/Old" />
       <recent name="$PROJECT_DIR$/All Major/Data/Updated" />
@@ -224,23 +291,23 @@
     <frame x="0" y="23" width="1280" height="752" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29725364" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3069467" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13091482" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.06309148" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -249,42 +316,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/science&amp;Technology.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Data/Old/cleaned_data_fall.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14265">
-          <caret line="951" column="25" lean-forward="true" selection-start-line="951" selection-start-column="25" selection-end-line="951" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Data/Old/cleaned_data_spring.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Data/Old/Science&amp;TechnologyData.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -292,23 +332,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="29" lean-forward="true" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/All Major/csvfile.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/All Major/csvfile.csv" />
     <entry file="file://$PROJECT_DIR$/All Major/Data/Old/Majors Changed.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32880">
           <caret line="2192" column="25" lean-forward="true" selection-start-line="2192" selection-start-column="25" selection-end-line="2192" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -317,23 +348,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32880">
           <caret line="2192" column="25" lean-forward="false" selection-start-line="2192" selection-start-column="25" selection-end-line="2192" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/All Major/csvfile.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/All Major/csvfile.csv" />
     <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Data/Old/Science&amp;TechnologyDataAfterCleaning.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -341,7 +363,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -349,7 +370,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="21" column="29" lean-forward="false" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -357,26 +377,232 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
           <caret line="951" column="25" lean-forward="false" selection-start-line="951" selection-start-column="25" selection-end-line="951" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/SO transitionmatrix" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/SR transitionmatrix" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/JR transitionmatrix" />
+    <entry file="file://$PROJECT_DIR$/Prediction/FR transitionmatrix">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/FR transitionmatrix" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/FR transitionmatrix_new" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/FR Number Transitionmatrix" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/FR Number Transitionmatrix for Spring" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/FR Number Transitionmatrix for Fall" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/FR transitionmatrix_new for Fall" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/FR transitionmatrix_new for Spring" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/FR transitionmatrix_new forfallSR" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/FR transitionmatrix_new forfallSO" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/FR transitionmatrix_new forfallJR" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/FR transitionmatrix_new forfallFR" />
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSuccessFallJR">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSuccessFallSO">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSuccessFallJR">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/FallFR/TransitionProbabilityMatrixSuccess.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/TransitionProbabilityMatrixSuccessFallFR">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Prediction/predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1492">
+          <caret line="121" column="13" lean-forward="false" selection-start-line="121" selection-start-column="13" selection-end-line="121" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/FallFR/TransitionProbabilityMatrix.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/TransitionNumberMatrixSuccessFallFR">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/FallFR/TransitionNumberMatrixSuccess.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/FallJR/TransitionNumberMatrixSuccess.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/FallJR/TransitionProbabilityMatrix.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/SpringSO/TransitionNumberMatrixSuccess.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/SpringJR/TransitionNumberMatrixSuccess.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/SpringFR/TransitionNumberMatrixSuccess.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/FallSR/TransitionNumberMatrixSuccess.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/FallSO/TransitionNumberMatrixSuccess.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/FallSO/TransitionProbabilityMatrixSuccess.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/FallSO/TransitionProbabilityMatrix.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/SpringSO/TransitionProbabilityMatrixSuccess.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/SpringSR/TransitionNumberMatrix.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/SpringSO/TransitionProbabilityMatrix.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/Result/FallFR/TransitionNumberMatrix.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Science&amp;Technology/science&amp;Technology.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="286">
+          <caret line="49" column="25" lean-forward="false" selection-start-line="49" selection-start-column="25" selection-end-line="49" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Science&amp;Technology/science&amp;TechnologyUpdated.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="420">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding>
+            <element signature="e#921#1674#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Science&amp;Technology/classification_wise_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#3391#4577#0" expanded="false" />
           </folding>
         </state>
       </provider>
