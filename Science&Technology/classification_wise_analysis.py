@@ -1,21 +1,12 @@
 import numpy as np
 import pandas as pd
-from pandas import ExcelWriter
-from os.path import join as pjoin
 import os
-import hickle as hkl
-from os import path
 
 
-
-path = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/Both Semester.xlsx'
-divided_data_path = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/divided_data.xlsx'
-classification_wise_data = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/classification_wise_data.xlsx'
 
 only_fall_data = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/fall.xlsx'
 
 only_spring_data = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/spring.xlsx'
-
 
 
 xls = pd.ExcelFile(only_fall_data)
@@ -69,72 +60,23 @@ sciene_and_technology_total_students_enrolled_spring_senior = [156, 24, 87, 69, 
 
 classification_list = ['FR', 'SO', 'JR', 'SR']
 
-#
-# sciene_and_technology_total_students_enrolled_fall[-1] = 14499 - sum(sciene_and_technology_total_students_enrolled_fall)
-# sciene_and_technology_total_students_enrolled_spring[-1] = 10000 - sum(sciene_and_technology_total_students_enrolled_spring)
-# total_students_enrolled = sciene_and_technology_total_students_enrolled_fall + sciene_and_technology_total_students_enrolled_spring
-
-
+# Initialize probability matrix and number matrix
 probability_matrix = np.zeros((7,7))
 number_matrix = np.zeros((7,7))
 
 probability_matrix_success = np.zeros((7,7))
 number_matrix_success = np.zeros((7,7))
 
-def cleanup_data(df, total_students, semester):
-
-    # need to remove the major change from Bachelor in Nursing(NURS-BS) to Registered Bachelor in Nursing(NURS-BSN)
-    # not a actual major change
-    df = df.drop(df[(df['Major Beginning of Semester'] == 'NURS-BS') & (df['Major End of Semester'] == 'NURS-BSN')].index)
-
-    # change all the other majors(other than science and technology)  to others
-    for data1, data2  in zip(df['Major End of Semester'], df['Major Beginning of Semester']):
-        if (data1 not in sciene_and_technology):
-            df.loc[df['Major End of Semester'] == data1, 'Major End of Semester'] = 'Others'
-
-        if (data2 not in sciene_and_technology):
-            df.loc[df['Major Beginning of Semester'] == data2, 'Major Beginning of Semester'] = 'Others'
-
-    return df
-
-def save_data(df, semester):
-
-    # extract clean the data to excel file
-    df.to_csv('Science&TechnologyDataAfterCleaning.csv', sep='\t', encoding='utf-8', index=False)
-
-    writer = ExcelWriter('Science&TechnologyDataAfterCleaning.xlsx')
-    df.to_excel(writer, 'Sheet5', index=False)
-    writer.save()
-
-def classify_data(df, semester):
-    writer = pd.ExcelWriter(semester + '.xlsx')
-    for i, classification in enumerate(classification_list):
-        classified_data = df[df['Class'] == classification]
-
-        classified_data.to_excel(writer, classification)
-        #df2.to_excel(writer, 'Sheet' + (i+1))
-        writer.save()
-        #classified_data.to_excel(classification + '.excel', sep='\t', encoding='utf-8', index=False)
-
-def divide_low_high_grade_major(df):
-    for index , major in enumerate(sciene_and_technology):
-
-            df.loc[ (df['Cum GPA End of Semester'] <= 3.0) & (df['Major End of Semester'] == major), 'Major End of Semester'] = major + 'Lower'
-            df.loc[ (df['Cum GPA Beginning of Semester'] <= 3.0) & (df['Major Beginning of Semester'] == major) ,'Major Beginning of Semester'] = major + 'Lower'
-
-            df.loc[ (df['Cum GPA End of Semester'] > 3.0) & (df['Major End of Semester'] == major), 'Major End of Semester'] = major + 'Higher'
-            df.loc[ (df['Cum GPA Beginning of Semester'] > 3.0) & (df['Major Beginning of Semester'] == major) , 'Major Beginning of Semester'] = major + 'Higher'
-    return df
-
 def create_probability_matrix(df1, sciene_and_technology_total_students_enrolled_persemester):
 
-
+    # checking if the major A has changed to major B
     for index, major in enumerate(sciene_and_technology):
         for index2, major2 in enumerate(sciene_and_technology):
             a = df1[(df1['Major Beginning of Semester'] == major) & (df1['Major End of Semester'] == sciene_and_technology[index2])]
             number_matrix[index][index2] = len(a.index)
 
-    #update the diagonal
+    # since the data have only major change data. we need to update the major staying
+    # from Major A to major A. Total students in a Major A of a semester - total students changing major from A
     for row in range(number_matrix.shape[0]):
         all_other_rows = [x for i, x in enumerate(number_matrix[row]) if i != row]
         number_matrix[row][row] = sciene_and_technology_total_students_enrolled_persemester[row] - sum(all_other_rows)
@@ -146,7 +88,6 @@ def create_probability_matrix(df1, sciene_and_technology_total_students_enrolled
             probability_matrix[row][column] = number_matrix[row][column] / sciene_and_technology_total_students_enrolled_persemester[row]
 
     return probability_matrix, number_matrix
-
 
 def create_probability_matrix_success(df, total):
 
@@ -176,13 +117,14 @@ def create_probability_matrix_success(df, total):
 
     return probability_matrix_success, number_matrix_success
 
-
-
 def main(classification, semester):
 
+    # Initialize data to be freshman fall semester data
+    # Initialize total to fall freshman
     data = fall_FR
     total = sciene_and_technology_total_students_enrolled_fall_freshman
 
+    # Conditions to set the right data and total
     if(classification == 'FR' and semester == 'Fall'):
         data = fall_FR
         total = sciene_and_technology_total_students_enrolled_fall_freshman
@@ -208,10 +150,10 @@ def main(classification, semester):
         data = spring_SR
         total = sciene_and_technology_total_students_enrolled_spring_senior
 
-    print(classification, semester)
-
-    #create probability matrix
+    # create probability matrix
     pm = create_probability_matrix(data, total)
+
+    # create probability success matrix
     pm_success = create_probability_matrix_success(data, total)
 
 
@@ -232,6 +174,8 @@ def main(classification, semester):
 
 
 if __name__ == "__main__":
+
+    # this loop runs 8 times ( 4 classificaiton (FR, SO, JR, SR) * 2 semester (Fall , Spring))
     for classification in classification_list:
         for semester in ['Spring', 'Fall']:
             main(classification, semester)

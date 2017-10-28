@@ -8,8 +8,6 @@ xls = pd.ExcelFile(path)
 df1 = xls.parse('Fall 2016')
 df2 = xls.parse('Spring 2017')
 
-
-
 df = pd.read_excel('/Users/Pankaj/Major-Change-Prediction/All Major/Data/Old/Majors Changed.xlsx')
 
 sciene_and_technology = ['BIOL-BS', 'CHEM-BS', 'CS-BS' , 'IT-BS',  'MATH-BS', 'PHYS-BS', 'Others']
@@ -19,49 +17,8 @@ sciene_and_technology_total_students_enrolled_spring = [645,71,261,203,48,50, 0]
 sciene_and_technology_total_students_enrolled_fall[-1] = 14499 - sum(sciene_and_technology_total_students_enrolled_fall)
 sciene_and_technology_total_students_enrolled_spring[-1] = 10000 - sum(sciene_and_technology_total_students_enrolled_spring)
 
-#https://www2.southeastern.edu/Administration/Inst-Research/Acadprog/data.cgi?majors.txt
-#Enrollement  data
-#FALL 2016
-#Office of Science & Technology
-# 1. Chemistry =  110
-# 2. Computer Science = 322 , Information Technology = 122 , so total = 444
-# 3. Biology = 781
-# 4. Mathematics = 57
-# 5. Engeneering Technology = 314 , AAS Industrial technology = 89, BS Occupational Health, Safety & Environment = 147,
-#               Total = 314 + 89 = 403
-# 6. Physics = 51
-# 7. Others
-
 
 probability_matrix = np.zeros((7,7))
-
-def cleanup_data(df, total_students, semester):
-
-    # need to remove the major change from Bachelor in Nursing(NURS-BS) to Registered Bachelor in Nursing(NURS-BSN)
-    # not a actual major change
-    df = df.drop(df[(df['Major Beginning of Semester'] == 'NURS-BS') & (df['Major End of Semester'] == 'NURS-BSN')].index)
-
-    # change all the other majors(other than science and technology)  to others
-    for data1, data2  in zip(df['Major End of Semester'], df['Major Beginning of Semester']):
-        if (data1 not in sciene_and_technology):
-            df.loc[df['Major End of Semester'] == data1, 'Major End of Semester'] = 'Others'
-
-        if (data2 not in sciene_and_technology):
-            df.loc[df['Major Beginning of Semester'] == data2, 'Major Beginning of Semester'] = 'Others'
-
-
-
-
-    return df
-
-def save_data(df, semester):
-
-    # extract clean the data to excel file
-    df.to_csv('Science&TechnologyDataAfterCleaning.csv', sep='\t', encoding='utf-8', index=False)
-
-    writer = ExcelWriter('Science&TechnologyDataAfterCleaning.xlsx')
-    df.to_excel(writer, 'Sheet5', index=False)
-    writer.save()
 
 
 def create_probability_matrix(df1, total_students_df1):
