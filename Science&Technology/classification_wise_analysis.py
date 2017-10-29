@@ -21,10 +21,6 @@ spring_SO = xls_spring.parse('SO')
 spring_JR = xls_spring.parse('JR')
 spring_SR = xls_spring.parse('SR')
 
-
-
-
-
 sciene_and_technology = ['BIOL-BS', 'CHEM-BS', 'CS-BS' , 'IT-BS',  'MATH-BS', 'PHYS-BS', 'Others']
 sciene_and_technology_division = ['BIOL-BS', 'CHEM-BS', 'CS-BS' , 'IT-BS',  'MATH-BS', 'PHYS-BS']
 
@@ -42,7 +38,7 @@ total_junior_spring = 1980
 total_senior_fall = 3087
 total_senior_spring = 3060
 
-sciene_and_technology_total_students_enrolled_fall_freshman = [330, 44, 135, 55, 13, 25, 3024]
+sciene_and_technology_total_students_enrolled_fall_freshman = [330, 44, 135, 55, 13, 25, 3024] # removed 13 for math
 sciene_and_technology_total_students_enrolled_sprint_freshman = [233, 25, 97, 43, 5, 16, 2208]
 
 sciene_and_technology_total_students_enrolled_fall_sophomore = [162, 22, 54, 39, 8, 8, 1838]
@@ -56,16 +52,15 @@ sciene_and_technology_total_students_enrolled_spring_junior = [119, 14, 49, 48, 
 sciene_and_technology_total_students_enrolled_fall_senior = [155, 24, 84, 70, 23, 10, 2721]
 sciene_and_technology_total_students_enrolled_spring_senior = [156, 24, 87, 69, 22, 10, 3060]
 
-
-
 classification_list = ['FR', 'SO', 'JR', 'SR']
 
 # Initialize probability matrix and number matrix
-probability_matrix = np.zeros((7,7))
-number_matrix = np.zeros((7,7))
+matrix_size = len(sciene_and_technology)
+probability_matrix = np.zeros((matrix_size,matrix_size))
+number_matrix = np.zeros((matrix_size,matrix_size))
 
-probability_matrix_success = np.zeros((7,7))
-number_matrix_success = np.zeros((7,7))
+probability_matrix_success = np.zeros((matrix_size,matrix_size))
+number_matrix_success = np.zeros((matrix_size,matrix_size))
 
 def create_probability_matrix(df1, sciene_and_technology_total_students_enrolled_persemester):
 
