@@ -53,20 +53,22 @@ if __name__ == '__main__':
             #check_regular_markov_chain(data, 200)
 
     # combinig transition matrix year wise (FR , SO , JR, SR of both semesters)
-    for classification in classification_list:
+    for i in range(50):
+        print('This is ' + str(i) + 'try')
+        for classification in classification_list:
 
-        fall_data = []
-        spring_data = []
-        for semester in ['Spring', 'Fall']:
-            path_to_get = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/Result/' + semester + classification
-            file_name = '/TransitionProbabilityMatrixSuccess.txt'
+            fall_data = []
+            spring_data = []
+            for semester in ['Spring', 'Fall']:
+                path_to_get = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/Result/' + semester + classification
+                file_name = '/TransitionProbabilityMatrixSuccess.txt'
 
-            if semester == 'Spring':
-                spring_data = np.array(pd.read_csv( path_to_get +file_name, sep=" ", header=None))
-            else:
-                fall_data = np.array(pd.read_csv( path_to_get +file_name, sep=" ", header=None))
+                if semester == 'Spring':
+                    spring_data = np.array(pd.read_csv( path_to_get +file_name, sep=" ", header=None))
+                else:
+                    fall_data = np.array(pd.read_csv( path_to_get +file_name, sep=" ", header=None))
 
-        overall_data = ( np.array(fall_data) + np.array(spring_data) )/ 2
+            overall_data = ( np.array(fall_data) + np.array(spring_data) )/ 2
 
-        check_regular_markov_chain(overall_data, 2500)
-        #check_normality(overall_data)
+            check_regular_markov_chain(overall_data, 2500)
+            #check_normality(overall_data)

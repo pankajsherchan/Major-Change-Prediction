@@ -2,7 +2,6 @@ import numpy as np
 import pandas as pd
 from pandas import ExcelWriter
 
-
 path = '/Users/Pankaj/Major-Change-Prediction/All Major/Data/Updated/Majors Changed Updated.xlsx'
 xls = pd.ExcelFile(path)
 fall_data = xls.parse('Fall 2016')
@@ -17,7 +16,7 @@ print('Major End of semester Spring', len(spring_data['Major End of Semester'].u
 
 
 # instead of just science and technology, this time use all majors
-all_majors = fall_data['Major Beginning of Semester'].unique()
+all_majors =  list(set( spring_data['Major Beginning of Semester']) | set(fall_data['Major Beginning of Semester'])  | set(fall_data['Major End of Semester']) |set(spring_data['Major End of Semester']))
 classification_list = ['FR', 'SO', 'JR', 'SR']
 
 total_majors = len(all_majors)
@@ -32,9 +31,12 @@ def cleanup_data(df):
     # change all the other majors(other than science and technology)  to others
     for data1, data2  in zip(df['Major End of Semester'], df['Major Beginning of Semester']):
         if (data1 not in all_majors):
+            print(data1, 'This major is not in all_majors')
+
             df.loc[df['Major End of Semester'] == data1, 'Major End of Semester'] = 'Others'
 
         if (data2 not in all_majors):
+            print(data2, 'This major is not in all majors')
             df.loc[df['Major Beginning of Semester'] == data2, 'Major Beginning of Semester'] = 'Others'
 
     return df
