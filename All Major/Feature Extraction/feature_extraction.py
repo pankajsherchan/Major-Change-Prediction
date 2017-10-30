@@ -201,8 +201,8 @@ def save_good_majors(data, semester, classification):
 
     #print(df_begining)
     # only select the top 25 major
-    df_begining[0: 25].to_excel(writer,  'GoodMajorBeginning')
-    df_end[0: 25].to_excel(writer, 'GoodMajorEnd')
+    df_begining[0: 10].to_excel(writer,  'GoodMajorBeginning')
+    df_end[0: 10].to_excel(writer, 'GoodMajorEnd')
     writer.save()
 
 

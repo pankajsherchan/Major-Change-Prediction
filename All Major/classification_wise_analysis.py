@@ -188,6 +188,8 @@ def main(classification, semester):
     # create probability success matrix
     pm_success = create_probability_matrix_success(data, total)
 
+    print(len(pm_success[0]))
+
 
     path_to_save = '/Users/Pankaj/Major-Change-Prediction/All Major/Result/'+semester + classification
 
