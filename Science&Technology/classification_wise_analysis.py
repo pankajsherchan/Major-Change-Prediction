@@ -20,7 +20,7 @@ sciene_and_technology['Biology'] = ['BIOL-BS']
 sciene_and_technology['Chemistry'] = ['CHEM-BS']
 sciene_and_technology['Computer'] = ['CS-BS']
 sciene_and_technology['EngineeringTechnology'] = ['ENTC-BS']
-sciene_and_technology['IndustrialTechnology'] = ['IT-AAS', 'IT-BS']
+sciene_and_technology['IndustrialTechnology'] = ['IT-BS']
 sciene_and_technology['InformationTechnology'] = ['ITEC-BS']
 sciene_and_technology['Math'] = ['MATH-BS']
 sciene_and_technology['Physics'] = ['PHYS-BS']
@@ -89,8 +89,6 @@ def create_probability_matrix_success(df):
         for column in range(number_matrix_success.shape[1]):
             probability_matrix_success[row][column] =  number_matrix_success[row][column] / scienceAndTechnologyPerClassification_success[row]
 
-    print(probability_matrix_success)
-
     return probability_matrix_success, number_matrix_success
 
 
@@ -134,7 +132,6 @@ def main(classification):
 
 
 if __name__ == "__main__":
-
     # this loop runs 8 times ( 4 classificaiton (FR, SO, JR, SR) * 2 semester (Fall , Spring))
     for classification in classification_list:
             main(classification)

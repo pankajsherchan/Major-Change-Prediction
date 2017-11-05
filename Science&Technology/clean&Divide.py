@@ -34,7 +34,7 @@ sciene_and_technology['Biology'] = ['BIOL-BS']
 sciene_and_technology['Chemistry'] = ['CHEM-BS']
 sciene_and_technology['Computer'] = ['CS-BS']
 sciene_and_technology['EngineeringTechnology'] = ['ENTC-BS']
-sciene_and_technology['IndustrialTechnology'] = ['IT-AAS', 'IT-BS']
+sciene_and_technology['IndustrialTechnology'] = ['IT-BS']
 sciene_and_technology['InformationTechnology'] = ['ITEC-BS']
 sciene_and_technology['Math'] = ['MATH-BS']
 sciene_and_technology['Physics'] = ['PHYS-BS']
@@ -43,8 +43,6 @@ sciene_and_technology['Others'] = ['Others']
 
 major_list = [major for major_list in sciene_and_technology.values() for major in major_list]
 
-
-sciene_and_technology = ['BIOL-BS', 'CHEM-BS', 'CS-BS' , 'ENTC-BS', 'IT-AAS', 'IT-BS', 'ITEC-BS',  'MATH-BS', 'PHYS-BS', 'Others']
 classification_list = ['FR', 'SO', 'JR', 'SR']
 
 
@@ -54,6 +52,10 @@ def cleanup_data(df):
     # need to remove the major change from Bachelor in Nursing(NURS-BS) to Registered Bachelor in Nursing(NURS-BSN)
     # not a actual major change
     df = df.drop( df[(df['Major Beginning of Semester'] == 'NURS-BS') & (df['Major End of Semester'] == 'NURS-BSN')].index)
+
+    df.loc[ df['Major Beginning of Semester'] == 'IT-AAS' , 'Major Beginning of Semester'] = 'IT-BS'
+    df.loc[ df['Major End of Semester'] == 'IT-AAS' , 'Major End of Semester'] = 'IT-BS'
+
 
     # change all the other majors(other than science and technology)  to others
     for data1, data2 in zip(df['Major End of Semester'], df['Major Beginning of Semester']):
@@ -73,15 +75,7 @@ def classify_data(df, semester, howmanymajors):
         writer.save()
 
 def main():
-
-    print(total_data.head())
-    print(len(total_data))
-
     clean_df = cleanup_data(total_data)
-
-    print('Summary of the clean data')
-    print(clean_df.head())
-
     classify_data(clean_df, 'BothSemester', 'ScienceTech')
 
 if __name__ == "__main__":
