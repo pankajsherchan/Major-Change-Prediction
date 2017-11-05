@@ -43,27 +43,12 @@ sciene_and_technology['Others'] = ['Others']
 
 major_list = [major for major_list in sciene_and_technology.values() for major in major_list]
 
-print(type(major_list))
-
 
 sciene_and_technology = ['BIOL-BS', 'CHEM-BS', 'CS-BS' , 'ENTC-BS', 'IT-AAS', 'IT-BS', 'ITEC-BS',  'MATH-BS', 'PHYS-BS', 'Others']
 classification_list = ['FR', 'SO', 'JR', 'SR']
 
 
 
-# print('Major Beginning of semster spring', len(spring_data['Major Beginning of Semester'].unique()))
-#
-# print('Major End of semster fall' , len(fall_data['Major End of Semester'].unique()))
-# print('Major End of semester Spring', len(spring_data['Major End of Semester'].unique()))
-#
-#
-# # instead of just science and technology, this time use all majors
-# all_majors =  list(set( spring_data['Major Beginning of Semester']) | set(fall_data['Major Beginning of Semester'])  | set(fall_data['Major End of Semester']) |set(spring_data['Major End of Semester']))
-# classification_list = ['FR', 'SO', 'JR', 'SR']
-
-# total_majors = len(all_majors)
-# probability_matrix = np.zeros((total_majors ,total_majors))
-#
 def cleanup_data(df):
 
     # need to remove the major change from Bachelor in Nursing(NURS-BS) to Registered Bachelor in Nursing(NURS-BSN)
@@ -77,21 +62,6 @@ def cleanup_data(df):
 
         if (data2 not in major_list):
             df.loc[df['Major Beginning of Semester'] == data2, 'Major Beginning of Semester'] = 'Others'
-
-    return df
-
-    # # change all the other majors(other than science and technology)  to others
-    # for data1, data2  in zip(df['Major End of Semester'], df['Major Beginning of Semester']):
-    #     if (data1 not in major_list):
-    #         # df.ix['Major End of Semester', 'Major End of Semester'] = 'Others'
-    #         df.ix[df['Major End of Semester'] == data1, 'Major End of Semester'] = 'Others'
-    #
-    #     if (data2 not in major_list):
-    #         # df.ix[ df['Major Beginning of Semester'] == data2 , 'Major Beginning of Semester'] = 'Others'
-    #         # df.loc[df['Major End of Semester'] == data1, 'Major End of Semester'] = 'Others'
-    #
-    #         df.ix[ df['Major Beginning of Semester'] == data2, 'Major Beginning of Semester'] = 'Others'
-
 
     return df
 
@@ -111,10 +81,8 @@ def main():
 
     print('Summary of the clean data')
     print(clean_df.head())
-    # result = fall_data.groupby(['Major Beginning of Semester']).agg({'Major End of Semester': 'count'}).rename(columns={'Major End of Semester': 'COUNT'}).reset_index()
 
     classify_data(clean_df, 'BothSemester', 'ScienceTech')
-    # classify_data(clean_df2, 'spring' , 'All Major')
 
 if __name__ == "__main__":
     main()
