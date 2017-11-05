@@ -27,18 +27,6 @@ def check_regular_markov_chain(transition_matrix, power):
     exponent_transition_matrix = np.linalg.matrix_power(transition_matrix, power)
     print('Total non zeros ' , np.count_nonzero(exponent_transition_matrix))
 
-    #print(exponent_transition_matrix)
-
-    # is_Regular = True
-    #
-    # for row  in transition_matrix.shape[0]:
-    #     for column in transition_matrix.shape[1]:
-    #
-    #         if(transition_matrix[row][column] == 0):
-    #             is_Regular = False
-    #             transition_matrix = np.dot(transition_matrix, transition_matrix)
-
-
 if __name__ == '__main__':
 
     # this loop runs 8 times ( 4 classificaiton (FR, SO, JR, SR) * 2 semester (Fall , Spring))
@@ -70,5 +58,5 @@ if __name__ == '__main__':
 
             overall_data = ( np.array(fall_data) + np.array(spring_data) )/ 2
 
-            check_regular_markov_chain(overall_data, 2500)
+            check_regular_markov_chain(overall_data, i)
             #check_normality(overall_data)
