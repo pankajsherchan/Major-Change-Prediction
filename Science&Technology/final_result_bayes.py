@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import os
 
 
 classification_list = ['FR', 'SO', 'JR']
@@ -7,7 +8,7 @@ classification_list = ['FR', 'SO', 'JR']
 
 def check_regular_markov_chain(transition_matrix, power):
     exponent_transition_matrix = np.linalg.matrix_power(transition_matrix, power)
-    print('Total non zeros ' , np.count_nonzero(exponent_transition_matrix))
+    return exponent_transition_matrix
 
 def final_transitionmatrix_result():
     classification_wise_success_probability = get_classification_wise_success_probability()
@@ -54,43 +55,56 @@ def cleanup_data(df):
 
 if __name__ == '__main__':
     final = final_transitionmatrix_result()
-    # for i in range(10):
-    #     check_regular_markov_chain(final,i )
+    final_stationary = np.array((len(final), len(final)))
+    for i in range(200):
+        print('round: ', (i+1))
+        final_stationary = check_regular_markov_chain(final,i)
+
+    path_to_save = '/Users/Pankaj/Major-Change-Prediction/Science&Technology/Result/'
+
+    try:
+        os.makedirs(path_to_save)
+    except OSError:
+        if not os.path.isdir(path_to_save):
+            raise
 
 
-    path = '/Users/Pankaj/Major-Change-Prediction/All Major/Majors Changed-2.xlsx'
-    pd.options.mode.chained_assignment = None
-    xls = pd.ExcelFile(path)
+    np.savetxt(os.path.join(path_to_save, 'TransitionProbabilityMatrixSuccess.txt'), final)
+    np.savetxt(os.path.join(path_to_save, 'TransitionStationaryProbabilityMatrixSuccess.txt'), final_stationary)
 
-    spring_2017 = xls.parse('Spring 2017')
-
-    sciene_and_technology = {}
-    sciene_and_technology['Biology'] = ['BIOL-BS']
-    sciene_and_technology['Chemistry'] = ['CHEM-BS']
-    sciene_and_technology['Computer'] = ['CS-BS']
-    sciene_and_technology['EngineeringTechnology'] = ['ENTC-BS']
-    sciene_and_technology['IndustrialTechnology'] = ['IT-BS']
-    sciene_and_technology['InformationTechnology'] = ['ITEC-BS']
-    sciene_and_technology['Math'] = ['MATH-BS']
-    sciene_and_technology['Physics'] = ['PHYS-BS']
-    sciene_and_technology['Others'] = ['Others']
-
-    major_list = [major for major_list in sciene_and_technology.values() for major in major_list]
-    classification_list = ['FR', 'SO', 'JR']
-    df = cleanup_data(spring_2017)
-
-    number_matrix_success = []
-    for index, major in enumerate(major_list):
-        a = df[ ( df['Major Beginning of Semester'] == major) &  (df['Cum GPA Beginning of Semester'] < df['Cum GPA End of Semester'])]
-        number_matrix_success.append(len(a.index))
-
-    # define the initial state
-    initial_state = [x / sum(number_matrix_success) for x in number_matrix_success]
-    print(initial_state)
-    initial_state = np.array(initial_state)
-    print(type(final))
-    for i in range(100):
-        print(str(i+1) + 'Round')
-        initial_state = initial_state.dot(final)
-    # intial success rate for stem
+        # path = '/Users/Pankaj/Major-Change-Prediction/All Major/Majors Changed-2.xlsx'
+    # pd.options.mode.chained_assignment = None
+    # xls = pd.ExcelFile(path)
+    #
+    # spring_2017 = xls.parse('Spring 2017')
+    #
+    # sciene_and_technology = {}
+    # sciene_and_technology['Biology'] = ['BIOL-BS']
+    # sciene_and_technology['Chemistry'] = ['CHEM-BS']
+    # sciene_and_technology['Computer'] = ['CS-BS']
+    # sciene_and_technology['EngineeringTechnology'] = ['ENTC-BS']
+    # sciene_and_technology['IndustrialTechnology'] = ['IT-BS']
+    # sciene_and_technology['InformationTechnology'] = ['ITEC-BS']
+    # sciene_and_technology['Math'] = ['MATH-BS']
+    # sciene_and_technology['Physics'] = ['PHYS-BS']
+    # sciene_and_technology['Others'] = ['Others']
+    #
+    # major_list = [major for major_list in sciene_and_technology.values() for major in major_list]
+    # classification_list = ['FR', 'SO', 'JR']
+    # df = cleanup_data(spring_2017)
+    #
+    # number_matrix_success = []
+    # for index, major in enumerate(major_list):
+    #     a = df[ ( df['Major Beginning of Semester'] == major) &  (df['Cum GPA Beginning of Semester'] < df['Cum GPA End of Semester'])]
+    #     number_matrix_success.append(len(a.index))
+    #
+    # # define the initial state
+    # initial_state = [x / sum(number_matrix_success) for x in number_matrix_success]
+    # print(initial_state)
+    # initial_state = np.array(initial_state)
+    # print(type(final))
+    # for i in range(100):
+    #     print(str(i+1) + 'Round')
+    #     initial_state = initial_state.dot(final)
+    # # intial success rate for stem
 
